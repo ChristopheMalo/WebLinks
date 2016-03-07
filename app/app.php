@@ -20,6 +20,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider());       // Doctrine 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(     // Twig
     'twig.path' => __DIR__.'/../views',
 ));
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());   // Twig-bridge - use PATH
 
 // Register services
 $app['dao.link'] = $app->share(function ($app) {
