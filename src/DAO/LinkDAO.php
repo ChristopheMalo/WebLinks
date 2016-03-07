@@ -4,6 +4,14 @@ namespace WebLinks\DAO;
 
 use WebLinks\Domain\Link;
 
+/**
+ * Access to a data link
+ *
+ * @author      Christophe Malo
+ * @version     1.0.0
+ * @copyright   OpenClassrooms - Baptiste Pesquet
+ */
+
 class LinkDAO extends DAO 
 {
     /**
@@ -16,19 +24,19 @@ class LinkDAO extends DAO
         $result = $this->getDb()->fetchAll($sql);
         
         // Convert query result to an array of domain objects
-        $entities = array();
+        $links = array();
         foreach ($result as $row) {
             $id = $row['link_id'];
-            $entities[$id] = $this->buildDomainObject($row);
+            $links[$id] = $this->buildDomainObject($row);
         }
-        return $entities;
+        return $links;
     }
 
     /**
      * Creates an Link object based on a DB row.
      *
      * @param array $row The DB row containing Link data.
-     * @return \WebLinks\Domain\Link
+     * @return \WebLinks\Domain\Link $links
      */
     protected function buildDomainObject($row) {
         $link = new Link();
