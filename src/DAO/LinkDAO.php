@@ -45,8 +45,8 @@ class LinkDAO extends DAO
     {
         $link = new Link();
         $link->setId($row['link_id']);
-        $link->setUrl($row['link_title']);
-        $link->setTitle($row['link_url']);
+        $link->setTitle($row['link_title']);
+        $link->setUrl($row['link_url']);
         
         return $link;
     }
