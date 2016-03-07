@@ -23,7 +23,12 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(     // Twig
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());   // Twig-bridge - use PATH
 
 // Register services
+$app['dao.user'] = $app->share(function ($app)
+{
+    return new WebLinks\DAO\UserDAO($app['db']);
+});
 $app['dao.link'] = $app->share(function ($app) {
     $linkDAO = new WebLinks\DAO\LinkDAO($app['db']);
+    $linkDAO->setUserDAO($app['dao.user']);
     return $linkDAO;
 });
