@@ -41,7 +41,8 @@ class Link
      * 
      * @return integer $id The link id
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -50,7 +51,8 @@ class Link
      * 
      * @return string $title The link title
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
     
@@ -59,7 +61,8 @@ class Link
      * 
      * @return string $url The link url
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
@@ -72,7 +75,8 @@ class Link
      * @param int $id
      * @return void
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
     
@@ -82,7 +86,8 @@ class Link
      * @param string $title
      * @return void
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
@@ -92,7 +97,8 @@ class Link
      * @param string $url
      * @return void
      */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = $url;
     }
 }
