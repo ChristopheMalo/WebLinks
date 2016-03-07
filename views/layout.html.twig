@@ -1,12 +1,31 @@
+{#
+/**
+ * WebLinks
+ * =========================================================================================================
+ *
+ * Basic template application
+ * Each template will inherit this base
+ * 
+ * @author          Christophe Malo
+ * @version         1.0.0
+ * @copyright       OpenClassrooms - Baptiste Pesquet
+ */
+#}
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ app.request.basepath }}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ app.request.basepath }}/css/weblinks.css" rel="stylesheet">
+
+    <meta name="description" content="A silex application - WebLinks Manager">
+    <meta name="keywords" content="Silex, Twig, Doctrine, Symfony, HTML5, Bootstrap">
+    <meta name="author" content="Christophe Malo">
+
     <title>WebLinks - {% block title %}{% endblock %}</title>
+
+    <link href="{{ app.request.basepath }}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ app.request.basepath }}/css/weblinks.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="container">
@@ -18,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">WebLinks</a>
+                    <a class="navbar-brand" href="{{ path('home') }}">WebLinks</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     
@@ -26,8 +45,12 @@
             </div><!-- /.container -->
         </nav>
         {% autoescape %}
-        <div id="content">{% block content %}{% endblock %}</div>
+        <section id="content">{% block content %}{% endblock %}</section>
         {% endautoescape %}
+    
+        <footer class="footer row">
+            <p><a href="https://github.com/ChristopheMalo/WebLinks"><strong>WebLinks</strong></a> is a minimalist Web application type management weblinks</p>
+        </footer>
     </div>
 
     <!-- jQuery -->
