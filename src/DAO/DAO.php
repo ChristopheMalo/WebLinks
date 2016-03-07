@@ -27,7 +27,8 @@ abstract class DAO
      * @param \Doctrine\DBAL\Connection The database connection object
      * @return void
      */
-    public function __construct(Connection $db) {
+    public function __construct(Connection $db)
+    {
         $this->db = $db;
     }
 
@@ -36,7 +37,8 @@ abstract class DAO
      *
      * @return \Doctrine\DBAL\Connection The database connection object
      */
-    protected function getDb() {
+    protected function getDb()
+    {
         return $this->db;
     }
 
