@@ -32,6 +32,13 @@ class Link
      * @var string
      */
     private $url;
+    
+    /**
+     * Associated user (Creator of link)
+     * 
+     * @var \WebLinks\Domain\User
+     */
+    private $user;
 
     
     
@@ -64,6 +71,16 @@ class Link
     public function getUrl()
     {
         return $this->url;
+    }
+    
+    /**
+     * Returns link user (user name of the link creator)
+     * 
+     * @return \WebLinks\Domain\User The link creator
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     
@@ -100,5 +117,16 @@ class Link
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+    
+    /**
+     * Set link user (user name of the link creator)
+     * 
+     * @param \WebLinks\Domain\User $user
+     * @return void
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
     }
 }
