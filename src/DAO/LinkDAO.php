@@ -19,16 +19,19 @@ class LinkDAO extends DAO
      *
      * @return array A list of all links.
      */
-    public function findAll() {
+    public function findAll()
+    {
         $sql = "select * from t_link order by link_id desc";
         $result = $this->getDb()->fetchAll($sql);
         
         // Convert query result to an array of domain objects
         $links = array();
-        foreach ($result as $row) {
+        foreach ($result as $row)
+        {
             $id = $row['link_id'];
             $links[$id] = $this->buildDomainObject($row);
         }
+        
         return $links;
     }
 
@@ -38,7 +41,8 @@ class LinkDAO extends DAO
      * @param array $row The DB row containing Link data.
      * @return \WebLinks\Domain\Link $links
      */
-    protected function buildDomainObject($row) {
+    protected function buildDomainObject($row)
+    {
         $link = new Link();
         $link->setId($row['link_id']);
         $link->setUrl($row['link_title']);
