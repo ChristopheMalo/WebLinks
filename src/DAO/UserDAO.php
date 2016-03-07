@@ -12,16 +12,26 @@ use WebLinks\Domain\User;
  * @copyright   OpenClassrooms - Baptiste Pesquet
  */
 
-class UserDAO
+class UserDAO extends DAO
 {
+    /**
+     * Returns a User matching the param id
+     * 
+     * @param integer $id The user id
+     * @return \WebLinks\Domain\User
+     * @throws \WebLinks\Domain\User\Exception if no matching user is found
+     */
     public function find($id)
     {
-        $sql = "SELECT user_id, user_name WHERE user_id=?";
+        $sql = "SELECT user_id, user_name FROM t_user WHERE user_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
+        
+        // Debug to display data row
+        //var_dump($row); // Returns array -> an user with data from sql select
         
         if ($row)
         {
-            return $this->buildObjectDomain($row);
+            return $this->buildDomainObject($row);
         }
         else
         {
@@ -29,7 +39,13 @@ class UserDAO
         }
     }
     
-    protected function buildObjectDomain($row)
+    /**
+     * Builds a User object based on a DB row
+     * 
+     * @param array $row The DB row containing User data
+     * @return \WebLinks\Domain\User
+     */
+    protected function buildDomainObject($row)
     {
         $user = New User();
         $user->setId($row['user_id']);
