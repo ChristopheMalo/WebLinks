@@ -1,4 +1,11 @@
 <?php
+/**
+ * Connection configuration file to the DB via Doctrine DBAL
+ * 
+ * @author      Christophe Malo
+ * @version     1.0.0
+ * @copyright   OpenClassrooms - Baptiste Pesquet
+ */
 
 // Doctrine (db)
 $app['db.options'] = array(
