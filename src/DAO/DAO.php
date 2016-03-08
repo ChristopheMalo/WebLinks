@@ -4,6 +4,14 @@ namespace WebLinks\DAO;
 
 use Doctrine\DBAL\Connection;
 
+/**
+ * Data Access Object
+ * 
+ * @author      Christophe Malo
+ * @version     1.0.0
+ * @copyright   OpenClassrooms - Baptiste Pesquet
+ */
+
 abstract class DAO 
 {
     /**
@@ -17,8 +25,10 @@ abstract class DAO
      * Constructor
      *
      * @param \Doctrine\DBAL\Connection The database connection object
+     * @return void
      */
-    public function __construct(Connection $db) {
+    public function __construct(Connection $db)
+    {
         $this->db = $db;
     }
 
@@ -27,7 +37,8 @@ abstract class DAO
      *
      * @return \Doctrine\DBAL\Connection The database connection object
      */
-    protected function getDb() {
+    protected function getDb()
+    {
         return $this->db;
     }
 

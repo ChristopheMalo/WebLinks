@@ -1,4 +1,101 @@
-body { 
-    padding-top: 70px; 
+/**
+ * 
+ * Custom Stylesheet
+ * WebLinks Project 
+ *
+ *
+ * @author      Christophe Malo
+ * @started     07/02/2016
+ * @updated     
+ * @project     WebLinks
+ * @namefile    weblinks.css
+ * @fileversion 1.0.0
+ * @cssversion  css3
+ */
+
+/**
+ * ------------------------------------------------------------------------------------
+ * Extra small devices (phones, less than 768px) -- and all size in no media queries
+ * No media query since this is the default in Bootstrap
+ */
+/**
+ * -------------------------
+ * Font
+ * -------------------------
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+/**
+ * -------------------------
+ * Generique
+ * -------------------------
+ */
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px; /* Font base - overwrite boostrap font-size of 14 px */
+    padding-top: 70px;
 }
 
+
+/**
+ * -------------------------
+ * Header
+ * -------------------------
+ */
+
+
+/**
+ * -------------------------
+ * Section Contenu
+ * -------------------------
+ */
+
+
+/**
+ * -------------------------
+ * Footer
+ * -------------------------
+ */
+footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+
+
+/**
+ * -------------------------
+ * Spécifique CSS
+ * -------------------------
+ */
+/* Small devices (tablets, 768px and up) - SM */
+@media (min-width: 768px) {
+    /* Header */
+    
+    /* Section contenu */
+    
+    /* Footer */
+    
+}
+
+
+/* Medium devices (desktops, 992px and up) - MD */
+@media (min-width: 992px) {
+    /* Header */
+    
+    /* Section contenu */
+    
+    /* Footer */
+    
+}
+
+
+/* Large devices (large desktops, 1200px and up) LG */
+@media (min-width: 1200px) {
+    /* Header */
+    
+    /* Section contenu */
+    
+    /* Footer */
+    
+}
