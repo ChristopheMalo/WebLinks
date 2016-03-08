@@ -39,6 +39,7 @@ The purpose: display the list of all weblinks
 - Fix the index view to show correctly the weblinks
 - Code a simple user class (without password and role) to display username in index view
 - Complete documentation of all classes and methods according to my method
+- Code the Home controller
 - Add testing tool and error handling tool (debug bar)
 
 ## Copyright
