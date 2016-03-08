@@ -44,8 +44,15 @@ class AdminController
      */
     public function addLinkAction(Request $request, Application $app) {
         $link = new Link();
+        
+        $author = $app['user'];     // The user connected to the app
+        $link->setAuthor($author);
+        
         $linkForm = $app['form.factory']->create(new LinkType(), $link);
         $linkForm->handleRequest($request);
+        
+        var_dump($link);
+        
         if ($linkForm->isSubmitted() && $linkForm->isValid()) {
             $app['dao.link']->save($link);
             $app['session']->getFlashBag()->add('success', 'The link was successfully created.');
@@ -54,7 +61,7 @@ class AdminController
             'title' => 'New link',
             'linkForm' => $linkForm->createView()));
     }
-
+    
     /**
      * Edit link controller.
      *
@@ -157,8 +164,8 @@ class AdminController
      * @return redirect View admin index
      */
     public function deleteUserAction($id, Application $app) {
-        // Delete all associated comments
-        $app['dao.comment']->deleteAllByUser($id);
+        // Delete all associated links
+        $app['dao.link']->deleteAllByAuthor($id);
         // Delete the user
         $app['dao.user']->delete($id);
         $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
