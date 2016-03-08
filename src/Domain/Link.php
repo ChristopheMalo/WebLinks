@@ -34,11 +34,11 @@ class Link
     private $url;
     
     /**
-     * Associated user (Creator of link)
+     * Link author
      * 
      * @var \WebLinks\Domain\User
      */
-    private $user;
+    private $author;
 
     
     
@@ -74,13 +74,13 @@ class Link
     }
     
     /**
-     * Returns link user (user name of the link creator)
+     * Returns link author
      * 
-     * @return \WebLinks\Domain\User The link creator
+     * @return \WebLinks\Domain\User The link author
      */
-    public function getUser()
+    public function getAuthor()
     {
-        return $this->user;
+        return $this->author;
     }
 
     
@@ -122,11 +122,11 @@ class Link
     /**
      * Set link user (user name of the link creator)
      * 
-     * @param \WebLinks\Domain\User $user
+     * @param \WebLinks\Domain\User $author
      * @return void
      */
-    public function setUser(User $user)
+    public function setAuthor(User $author)
     {
-        $this->user = $user;
+        $this->author = $author;
     }
 }
