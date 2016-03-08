@@ -9,4 +9,6 @@
 
 // Home page
 $app->get('/', "WebLinks\Controller\HomeController::indexAction")->bind('home');
-        
+
+// Admin zone
+$app->get('/admin', "WebLinks\Controller\AdminController::indexAction")->bind('admin');
