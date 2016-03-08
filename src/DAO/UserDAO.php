@@ -40,6 +40,26 @@ class UserDAO extends DAO
     }
     
     /**
+     * Returns a list (array) of all users, sorted by role and username
+     * 
+     * @return array $users a list of all users
+     */
+    public function findAll()
+    {
+        $sql = "SELECT * FROM t_user ORDER BY user_role, user_name";
+        $result = $this->getDb()->fetchAll($sql);
+        
+        // Convert query result to an array of domain objects
+        $users = array();
+        foreach ($result as $row)
+        {
+            $id = $row['user_id'];
+            $users[$id] = $this->buildDomainObject($row);
+        }
+        return $users;
+    }
+    
+    /**
      * Builds a User object based on a DB row
      * 
      * @param array $row The DB row containing User data
