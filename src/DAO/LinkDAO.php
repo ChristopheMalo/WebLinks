@@ -67,6 +67,7 @@ class LinkDAO extends DAO
         
         if (array_key_exists('user_id', $row))
         {
+            // Find and set the associated author
             $authorId = $row['user_id'];
             $author = $this->userDAO->find($authorId);
             $link->setAuthor($author);
