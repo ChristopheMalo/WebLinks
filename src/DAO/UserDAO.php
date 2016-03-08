@@ -27,7 +27,7 @@ class UserDAO extends DAO implements UserProviderInterface
      */
     public function find($id)
     {
-        $sql = "SELECT user_id, user_name FROM t_user WHERE user_id=?";
+        $sql = "SELECT * FROM t_user WHERE user_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
         
         // Debug to display data row
