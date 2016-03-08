@@ -41,6 +41,7 @@ The purpose: display the list of all weblinks
 - Complete documentation of all classes and methods according to my method
 - Code the Home controller
 - Add testing tool and error handling tool (debug bar)
+- Add phpunit tests
 
 ## Copyright
 **An original idea of Baptiste Pesquet for :** [a work practice of Openclassrooms](https://openclassrooms.com/courses/evoluez-vers-une-architecture-php-professionnelle) - **Adapted and directed :** Christophe Malo
