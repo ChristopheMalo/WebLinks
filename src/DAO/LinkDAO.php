@@ -82,11 +82,15 @@ class LinkDAO extends DAO
      */
     public function save(Link $link)
     {
-        // Builds array with user values
+        // Builds array with link and user values
         $linkData = array(
             'link_title'    => $link->getTitle(),
             'link_url'      => $link->getUrl(),
+            'user_id'       => $link->getAuthor()->getId(),
         );
+        
+        // Debug to display array data
+        //var_dump($linkData); // Returns array -> a link with user
         
         if ($link->getId())
         {
@@ -99,7 +103,7 @@ class LinkDAO extends DAO
             $this->getDb()->insert('t_link', $linkData);
             
             // Gets the id of the newly created link and sets it in the entity
-            $id = $this->getDb()->lastInsertId;
+            $id = $this->getDb()->lastInsertId();
             $link->setId($id);
         }
     }
@@ -113,6 +117,16 @@ class LinkDAO extends DAO
     public function delete($id)
     {
         $this->getDb()->delete('t_link', array('link_id' => $id));
+    }
+    
+    /**
+     * Remove all links of user from database
+     * 
+     * @param int $authorId The user id
+     */
+    public function deleteAllByAuthor($authorId)
+    {
+        $this->getDb()->delete('t_link', array('user_id' => $authorId));
     }
 
     /**
