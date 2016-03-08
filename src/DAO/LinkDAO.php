@@ -32,6 +32,28 @@ class LinkDAO extends DAO
     }
     
     /**
+     * Returns a link matching the param id
+     * 
+     * @param int $id The link id
+     * @return \WebLinks\Domain\Link A link object
+     * @throws \Exception
+     */
+    public function find($id)
+    {
+        $sql = "SELECT * FROM t_link WHERE link_id=?";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+        
+        if ($row)
+        {
+            return $this->buildDomainObject($row);
+        }
+        else
+        {
+            throw new \Exception('No link matching id ' . $id);
+        }
+    }
+    
+    /**
      * Returns a list of all links, sorted by id.
      *
      * @return array A list of all links.
@@ -50,6 +72,47 @@ class LinkDAO extends DAO
         }
         
         return $links;
+    }
+    
+    /**
+     * Saves a link in database
+     * 
+     * @param \WebLinks\Domain\Link $link The link to save
+     * @return void
+     */
+    public function save(Link $link)
+    {
+        // Builds array with user values
+        $linkData = array(
+            'link_title'    => $link->getTitle(),
+            'link_url'      => $link->getUrl(),
+        );
+        
+        if ($link->getId())
+        {
+            // The link exists: update it
+            $this->getDb()->update('t_link', $linkData, array('link_id' => $link->getId()));
+        }
+        else
+        {
+            // The link does not exist: insert it
+            $this->getDb()->insert('t_link', $linkData);
+            
+            // Gets the id of the newly created link and sets it in the entity
+            $id = $this->getDb()->lastInsertId;
+            $link->setId($id);
+        }
+    }
+    
+    /**
+     * Remove link from database
+     * 
+     * @param int $id The link id
+     * @return void
+     */
+    public function delete($id)
+    {
+        $this->getDb()->delete('t_link', array('link_id' => $id));
     }
 
     /**
