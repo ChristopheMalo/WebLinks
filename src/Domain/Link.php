@@ -120,7 +120,7 @@ class Link
     }
     
     /**
-     * Set link user (user name of the link creator)
+     * Sets link author
      * 
      * @param \WebLinks\Domain\User $author
      * @return void
