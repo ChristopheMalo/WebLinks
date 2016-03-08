@@ -67,10 +67,11 @@ class UserDAO extends DAO implements UserProviderInterface
      * Saves the user in database
      * 
      * @param \WebLinks\Domain\User $user The user to save
+     * @return void
      */
     public function save(User $user)
     {
-        // Buils array with user values
+        // Builds array with user values
         $userData = array(
             'user_name'     => $user->getUsername(),
             'user_salt'     => $user->getSalt(),
@@ -135,10 +136,11 @@ class UserDAO extends DAO implements UserProviderInterface
      * Removes an user from the database
      * 
      * @param int $id The user id
+     * @return void
      */
     public function delete($id)
     {
-        // Efface l'utilisateur
+        // Delete user
         $this->getDb()->delete('t_user', array('user_id' => $id));
     }
     
