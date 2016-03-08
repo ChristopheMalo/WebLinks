@@ -33,15 +33,32 @@ The purpose: display the list of all weblinks
 - Load the dependancies for this iteration
 - Initialize the application on a local machine (virtual host, database...)
 - Test the application
-- Chek the files
+- Check the files
 - Model the diagram class for this iteration
 - Model the database schema
-- Fix the index view to show correctly the weblinks
+- Fixe the index view to show correctly the weblinks
 - Code a simple user class (without password and role) to display username in index view
 - Complete documentation of all classes and methods according to my method
 - Code the Home controller
 - Add testing tool and error handling tool (debug bar)
 - Add phpunit tests
+
+## Iteration 2
+
+The purpose: develop the backoffice application to manage links and users
+
+- Update composer to add security and form dependencies
+- Update User class (role, password)
+- Update UserDAO class
+- Code access menu in layout view and login form (view)
+- Code AdminController to display links and users (indexAction)
+- Code the admin view
+- Update routes (add routes) and app (register services)
+- Code all the types of form
+- Code the form views (user and link)
+- Code AdminCOntroller to manage users and links
+- Update phpunit test urls
+- Custom error message
 
 ## Copyright
 **An original idea of Baptiste Pesquet for :** [a work practice of Openclassrooms](https://openclassrooms.com/courses/evoluez-vers-une-architecture-php-professionnelle) - **Adapted and directed :** Christophe Malo
