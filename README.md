@@ -2,6 +2,8 @@
 
 A Silex application to manage weblinks.
 
+Receive this medal: [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fd378d3a-d6b2-4102-a861-847ada2c7037/big.png)](https://insight.sensiolabs.com/projects/fd378d3a-d6b2-4102-a861-847ada2c7037)
+
 ## Presentation
 WebLinks is a minimalist Web application type management url links. It is built by successive iterations. Each branch of this repository equal to the result obtained at the end of an iteration.
 
