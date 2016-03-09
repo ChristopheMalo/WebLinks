@@ -14,7 +14,7 @@ $app->get('/', "WebLinks\Controller\HomeController::indexAction")->bind('home');
 $app->get('/login', "WebLinks\Controller\HomeController::loginAction")->bind('login');
 
 // User area zone - Add new link - ROLE_USER
-$app->match('/userarea/link/add', "\WebLinks\Controller\UserAreaController::addLinkAction")->bind('link_add');
+$app->match('/userarea/link/submit', "\WebLinks\Controller\UserAreaController::submitLinkAction")->bind('link_submit');
 
 // Admin zone
 $app->get('/admin', "WebLinks\Controller\AdminController::indexAction")->bind('admin');
@@ -39,10 +39,3 @@ $app->get('/api/links', "WebLinks\Controller\ApiController::getLinksAction")->bi
 
 // API : get a link
 $app->get('/api/link/{id}', "WebLinks\Controller\ApiController::getLinkAction")->bind('api_link');
-
-// API : create a link
-$app->post('/api/link', "WebLinks\Controller\ApiController::addLinkAction")->bind('api_link_add');
-
-// API : remove a link
-$app->delete('/api/link/{id}', "WebLinks\Controller\ApiController::deleteLinkAction")->bind('api_link_delete');
-
