@@ -4,8 +4,6 @@ namespace WebLinks\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use WebLinks\Domain\Link;
-use WebLinks\Form\Type\LinkType;
 
 /**
  * Class manager controllers accessible from the home page 
@@ -30,40 +28,12 @@ class HomeController
     }
     
     /**
-     * Add link controller.
-     *
+     * Login controller to display form login et connect to admin area
+     * 
      * @param Request $request Incoming request
      * @param Application $app Silex application
-     * @return View link_form
+     * @return type
      */
-    public function addLinkAction(Request $request, Application $app)
-    {
-        // The user is authenticated , he can comment
-        if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
-        {
-            $link = new Link();
-
-            $author = $app['user'];     // The user connected to the app
-            $link->setAuthor($author);
-
-            $linkForm = $app['form.factory']->create(new LinkType(), $link);
-            $linkForm->handleRequest($request);
-            
-            // Debug to display the link object
-            //var_dump($link); // Returns a link object with user
-
-            if ($linkForm->isSubmitted() && $linkForm->isValid())
-            {
-                $app['dao.link']->save($link);
-                $app['session']->getFlashBag()->add('success', 'The link was successfully created.');
-            }
-            return $app['twig']->render('link_form.html.twig', array(
-                'title' => 'New link',
-                'linkForm' => $linkForm->createView()
-            ));
-        }
-    }
-    
     public function loginAction(Request $request, Application $app)
     {
         return $app['twig']->render('login.html.twig', array(
