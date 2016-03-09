@@ -57,6 +57,8 @@ The purpose: develop the backoffice application to manage links and users
 - Code all the types of form
 - Code the form views (user and link)
 - Code AdminController to manage users and links
+- Add favicon
+- Add robots.txt file
 - Code Submit Link on top for user connected (Minimum ROLE_USER)
 - Update phpunit test urls
 
