@@ -4,7 +4,6 @@ namespace WebLinks\Controller;
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use WebLinks\Domain\Link;
 use WebLinks\Domain\User;
 use WebLinks\Form\Type\LinkType;
 use WebLinks\Form\Type\UserType;
@@ -36,33 +35,6 @@ class AdminController
     }
     
     /**
-     * Add link controller.
-     *
-     * @param Request $request Incoming request
-     * @param Application $app Silex application
-     * @return View link_form
-     */
-    public function addLinkAction(Request $request, Application $app) {
-        $link = new Link();
-        
-        $author = $app['user'];     // The user connected to the app
-        $link->setAuthor($author);
-        
-        $linkForm = $app['form.factory']->create(new LinkType(), $link);
-        $linkForm->handleRequest($request);
-        
-        var_dump($link);
-        
-        if ($linkForm->isSubmitted() && $linkForm->isValid()) {
-            $app['dao.link']->save($link);
-            $app['session']->getFlashBag()->add('success', 'The link was successfully created.');
-        }
-        return $app['twig']->render('link_form.html.twig', array(
-            'title' => 'New link',
-            'linkForm' => $linkForm->createView()));
-    }
-    
-    /**
      * Edit link controller.
      *
      * @param integer $id Link id
@@ -91,8 +63,6 @@ class AdminController
      * @return redirect View admin index
      */
     public function deleteLinkAction($id, Application $app) {
-        // Delete all associated comments
-        $app['dao.comment']->deleteAllByLink($id);
         // Delete the link
         $app['dao.link']->delete($id);
         $app['session']->getFlashBag()->add('success', 'The link was succesfully removed.');
