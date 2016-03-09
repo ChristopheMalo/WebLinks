@@ -49,7 +49,11 @@ body {
  * Section Contenu
  * -------------------------
  */
-
+/* Links */
+.linkTitle:hover {
+    font-weight: 600;
+    text-decoration: underline !important;
+}
 
 /**
  * -------------------------

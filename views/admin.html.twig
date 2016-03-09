@@ -43,7 +43,7 @@
                 </thead>
                 {% for link in links %}
                 <tr>
-                    <td><a class="linkTitle" href="{{ link.url }}">{{ link.title }}</a></td>
+                    <td><a href="{{ link.url }}">{{ link.title }}</a></td>
                     <td>{{ link.url | truncate(60) }}</td>
                     <td>
                         <a href="{{ path('admin_link_edit', { 'id': link.id }) }}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>

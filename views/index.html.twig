@@ -15,7 +15,7 @@
     {% if links %}
         <div class="list-group">
             {% for link in links %}
-                <a href="{{ link.url }}" class="list-group-item">{{ link.title }}
+                <a href="{{ link.url }}" class="list-group-item linkTitle" target="_blank">{{ link.title }}
                 <span class="small">Submitted by {{ link.author.username }}</span>
                 </a>
             {% endfor %}
