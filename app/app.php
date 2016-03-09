@@ -52,8 +52,9 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.role_hierarchy' => array(
         'ROLE_ADMIN' => array('ROLE_USER'), // Sets a hierarchy
     ),
-    'security.access_rules' => array(
-        array('^/admin', 'ROLE_ADMIN'), // Protect the admin area
+    'security.access_rules' => array( // Protect the admin area
+        array('^/admin', 'ROLE_ADMIN'),
+        array('^/userarea', 'ROLE_USER'),
     ),
 ));
 
