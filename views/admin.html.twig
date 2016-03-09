@@ -37,6 +37,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
+                        <th>Author</th>
                         <th>url</th>
                         <th></th>  <!-- Actions column -->
                     </tr>
@@ -44,6 +45,7 @@
                 {% for link in links %}
                 <tr>
                     <td><a href="{{ link.url }}">{{ link.title }}</a></td>
+                    <td><strong>{{ link.author.username }}</strong></td>
                     <td>{{ link.url | truncate(60) }}</td>
                     <td>
                         <a href="{{ path('admin_link_edit', { 'id': link.id }) }}" class="btn btn-info btn-xs" title="Edit"><span class="glyphicon glyphicon-edit"></span></a>
