@@ -36,24 +36,32 @@ class HomeController
      * @param Application $app Silex application
      * @return View link_form
      */
-    public function addLinkAction(Request $request, Application $app) {
-        $link = new Link();
-        
-        $author = $app['user'];     // The user connected to the app
-        $link->setAuthor($author);
-        
-        $linkForm = $app['form.factory']->create(new LinkType(), $link);
-        $linkForm->handleRequest($request);
-        
-        var_dump($link);
-        
-        if ($linkForm->isSubmitted() && $linkForm->isValid()) {
-            $app['dao.link']->save($link);
-            $app['session']->getFlashBag()->add('success', 'The link was successfully created.');
+    public function addLinkAction(Request $request, Application $app)
+    {
+        // The user is authenticated , he can comment
+        if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
+        {
+            $link = new Link();
+
+            $author = $app['user'];     // The user connected to the app
+            $link->setAuthor($author);
+
+            $linkForm = $app['form.factory']->create(new LinkType(), $link);
+            $linkForm->handleRequest($request);
+            
+            // Debug to display the link object
+            //var_dump($link); // Returns a link object with user
+
+            if ($linkForm->isSubmitted() && $linkForm->isValid())
+            {
+                $app['dao.link']->save($link);
+                $app['session']->getFlashBag()->add('success', 'The link was successfully created.');
+            }
+            return $app['twig']->render('link_form.html.twig', array(
+                'title' => 'New link',
+                'linkForm' => $linkForm->createView()
+            ));
         }
-        return $app['twig']->render('link_form.html.twig', array(
-            'title' => 'New link',
-            'linkForm' => $linkForm->createView()));
     }
     
     public function loginAction(Request $request, Application $app)
