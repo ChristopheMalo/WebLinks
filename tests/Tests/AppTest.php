@@ -66,15 +66,12 @@ class AppTest extends WebTestCase
     {
         return array(
             array('/'),
-//            array('/link/1'),
-//            array('/login'),
-//            array('/admin'),
-//            array('/admin/link/add'),
-//            array('/admin/link/1/edit'),
-//            array('/admin/user/add'),
-//            array('/admin/user/1/edit'),
-//            array('/api/links'),
-//            array('/api/link/1'),
+            array('/login'),
+            array('/userarea/link/add'),
+            array('/admin'),
+            array('/admin/link/1/edit'),
+            array('/admin/user/add'),
+            array('/admin/user/1/edit'),
         ); 
     }
     

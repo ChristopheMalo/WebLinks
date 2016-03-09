@@ -1,6 +1,6 @@
 {#
 /**
- * View index
+ * The index view - Frontend
  *
  * @author          Christophe Malo
  * @version         1.0.0
@@ -15,8 +15,8 @@
     {% if links %}
         <div class="list-group">
             {% for link in links %}
-                <a href="{{ link.url }}" class="list-group-item">{{ link.title }}
-                <span class="small">Submitted by {{ link.user.username }}</span>
+                <a href="{{ link.url }}" class="list-group-item linkTitle" target="_blank">{{ link.title }}
+                <span class="small">Submitted by {{ link.author.username }}</span>
                 </a>
             {% endfor %}
         </div>
