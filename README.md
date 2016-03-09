@@ -18,7 +18,7 @@ The main characteristics of this application are:
 - Integration of Bootstrap framework
 - Add a backoffice to manage links and user (add, update and delete)
 - Add a JSON API to manage weblinks (show a list or one link - no delete - no add)
-- Automated functional testing consulting URL (URL to be tested)
+- Automated functional testing consulting URL (9 URL to be tested)
 - Logging and error handling
 - Written controller as classes, specific one for user area
 
