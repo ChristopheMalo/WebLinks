@@ -10,6 +10,9 @@
 // Home page
 $app->get('/', "WebLinks\Controller\HomeController::indexAction")->bind('home');
 
+// Add new link for ROLE_USER
+$app->match('/link/add', "\WebLinks\Controller\HomeController::addLinkAction")->bind('link_add');
+
 // Login form
 $app->get('/login', "WebLinks\Controller\HomeController::loginAction")->bind('login');
 
@@ -17,7 +20,7 @@ $app->get('/login', "WebLinks\Controller\HomeController::loginAction")->bind('lo
 $app->get('/admin', "WebLinks\Controller\AdminController::indexAction")->bind('admin');
 
 // Add a new link
-$app->match('/admin/link/add', "WebLinks\Controller\AdminController::addLinkAction")->bind('admin_link_add');
+//$app->match('/admin/link/add', "WebLinks\Controller\AdminController::addLinkAction")->bind('admin_link_add');
 
 // Edit an existing link
 $app->match('/admin/link/{id}/edit', "WebLinks\Controller\AdminController::editLinkAction")->bind('admin_link_edit');
