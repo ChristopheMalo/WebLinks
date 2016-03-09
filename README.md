@@ -18,9 +18,9 @@ The main characteristics of this application are:
 - Integration of Bootstrap framework
 - Add a backoffice to manage links and user (add, update and delete)
 - Add a JSON API to manage weblinks (show a list or one link - no delete - no add)
-- Automated functional testing consulting URL (6 URL to be tested
+- Automated functional testing consulting URL (URL to be tested)
 - Logging and error handling
-- Written controller as classes
+- Written controller as classes, specific one for user area
 
 ## Iteration 1
 
@@ -62,6 +62,12 @@ The purpose: develop the backoffice application to manage links and users
 - Code Submit Link on top for user connected (Minimum ROLE_USER)
 - Code UseArea controller for add link and for future user actions (manage profile, manage his links...)
 - Update phpunit test urls
+
+## Iteration 3
+
+- Code JSON API to display all links and detailed link
+- Custom error message
+- Pass the insight sensiolabs test
 
 ## Copyright
 **An original idea of Baptiste Pesquet for :** [a work practice of Openclassrooms](https://openclassrooms.com/courses/evoluez-vers-une-architecture-php-professionnelle) - **Adapted and directed :** Christophe Malo
