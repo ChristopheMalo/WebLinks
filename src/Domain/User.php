@@ -2,6 +2,8 @@
 
 namespace WebLinks\Domain;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * Class representing an User
  *
@@ -10,7 +12,7 @@ namespace WebLinks\Domain;
  * @copyright   OpenClassrooms - Baptiste Pesquet
  */
 
-class User
+class User implements UserInterface
 {
     /**
      * User id
@@ -26,6 +28,27 @@ class User
      */
     private $username;
     
+    /**
+     * User password
+     * 
+     * @var string
+     */
+    private $password;
+    
+    /**
+     * Salt was used to encode the password
+     * 
+     * @var string
+     */
+    private $salt;
+    
+    /**
+     * User role
+     * Values : ROLE_USER or ROLE_ADMIN
+     * @var string
+     */
+    private $role;
+    
     
     
     
@@ -40,16 +63,45 @@ class User
     }
     
     /**
-     * Returns user name
-     * 
-     * @return string $username The user name
+     * @inheritDoc
      */
-    public function getusername()
+    public function getUsername()
     {
         return $this->username;
     }
     
+    /**
+     * @inheritDoc
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
     
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+    
+    /**
+     * Gets user role
+     * 
+     * @return string User role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles() {
+        return array($this->getRole());
+    }
     
     
     /**
@@ -73,4 +125,45 @@ class User
     {
         $this->username = $username;
     }
+    
+    /**
+     * Sets user password
+     * 
+     * @param string $password
+     * @return void
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+    
+    /**
+     * Sets the associated salt to the user's password
+     * 
+     * @param string $salt
+     * @return void
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    }
+    
+    /**
+     * Sets user role
+     * 
+     * @param string $role
+     * @return void
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+    
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+       
+    }          
 }
