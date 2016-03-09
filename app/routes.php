@@ -10,17 +10,14 @@
 // Home page
 $app->get('/', "WebLinks\Controller\HomeController::indexAction")->bind('home');
 
-// Add new link for ROLE_USER
-$app->match('/link/add', "\WebLinks\Controller\HomeController::addLinkAction")->bind('link_add');
-
 // Login form
 $app->get('/login', "WebLinks\Controller\HomeController::loginAction")->bind('login');
 
+// User area zone - Add new link - ROLE_USER
+$app->match('/userarea/link/add', "\WebLinks\Controller\UserAreaController::addLinkAction")->bind('link_add');
+
 // Admin zone
 $app->get('/admin', "WebLinks\Controller\AdminController::indexAction")->bind('admin');
-
-// Add a new link
-//$app->match('/admin/link/add', "WebLinks\Controller\AdminController::addLinkAction")->bind('admin_link_add');
 
 // Edit an existing link
 $app->match('/admin/link/{id}/edit', "WebLinks\Controller\AdminController::editLinkAction")->bind('admin_link_edit');
