@@ -39,10 +39,3 @@ $app->get('/api/links', "WebLinks\Controller\ApiController::getLinksAction")->bi
 
 // API : get a link
 $app->get('/api/link/{id}', "WebLinks\Controller\ApiController::getLinkAction")->bind('api_link');
-
-// API : create a link
-$app->post('/api/link', "WebLinks\Controller\ApiController::addLinkAction")->bind('api_link_add');
-
-// API : remove a link
-$app->delete('/api/link/{id}', "WebLinks\Controller\ApiController::deleteLinkAction")->bind('api_link_delete');
-
