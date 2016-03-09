@@ -14,7 +14,7 @@ $app->get('/', "WebLinks\Controller\HomeController::indexAction")->bind('home');
 $app->get('/login', "WebLinks\Controller\HomeController::loginAction")->bind('login');
 
 // User area zone - Add new link - ROLE_USER
-$app->match('/userarea/link/add', "\WebLinks\Controller\UserAreaController::addLinkAction")->bind('link_add');
+$app->match('/userarea/link/submit', "\WebLinks\Controller\UserAreaController::submitLinkAction")->bind('link_submit');
 
 // Admin zone
 $app->get('/admin', "WebLinks\Controller\AdminController::indexAction")->bind('admin');
