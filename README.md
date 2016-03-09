@@ -60,6 +60,7 @@ The purpose: develop the backoffice application to manage links and users
 - Add favicon
 - Add robots.txt file
 - Code Submit Link on top for user connected (Minimum ROLE_USER)
+- Code UseArea controller for add link and for future user actions (manage profile, manage his links...)
 - Update phpunit test urls
 
 ## Copyright
