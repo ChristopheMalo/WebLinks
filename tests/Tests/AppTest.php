@@ -72,6 +72,8 @@ class AppTest extends WebTestCase
             array('/admin/link/1/edit'),
             array('/admin/user/add'),
             array('/admin/user/1/edit'),
+            array('/api/links'),
+            array('/api/link/1')
         ); 
     }
     
