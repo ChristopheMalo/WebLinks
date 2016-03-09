@@ -3,6 +3,7 @@
 A Silex application to manage weblinks.
 
 This app receive the medal:
+
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fd378d3a-d6b2-4102-a861-847ada2c7037/big.png)](https://insight.sensiolabs.com/projects/fd378d3a-d6b2-4102-a861-847ada2c7037)
 
 ## Presentation
