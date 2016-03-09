@@ -56,9 +56,9 @@ The purpose: develop the backoffice application to manage links and users
 - Update routes (add routes) and app (register services)
 - Code all the types of form
 - Code the form views (user and link)
-- Code AdminCOntroller to manage users and links
+- Code AdminController to manage users and links
+- Code Submit Link on top for user connected (Minimum ROLE_USER)
 - Update phpunit test urls
-- Custom error message
 
 ## Copyright
 **An original idea of Baptiste Pesquet for :** [a work practice of Openclassrooms](https://openclassrooms.com/courses/evoluez-vers-une-architecture-php-professionnelle) - **Adapted and directed :** Christophe Malo
