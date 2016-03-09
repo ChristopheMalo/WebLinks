@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
                     {% if app.user and is_granted('ROLE_USER') %}
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ path('link_add') }}">Submit link</a></li>
+                        <li class="active"><a href="{{ path('link_submit') }}">Submit link</a></li>
                     </ul>
                     {% endif %}
                     <ul class="nav navbar-nav navbar-right">

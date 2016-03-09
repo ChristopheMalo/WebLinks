@@ -31,7 +31,7 @@ class UserAreaController {
      * @param Application $app Silex application
      * @return View link_form
      */
-    public function addLinkAction(Request $request, Application $app)
+    public function submitLinkAction(Request $request, Application $app)
     {
         
         $link = new Link();
