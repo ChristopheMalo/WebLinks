@@ -40,6 +40,11 @@
                     <a class="navbar-brand" href="{{ path('home') }}">WebLinks</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                    {% if app.user and is_granted('ROLE_USER') %}
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ path('link_add') }}">Submit link</a></li>
+                    </ul>
+                    {% endif %}
                     <ul class="nav navbar-nav navbar-right">
                         {% if app.user and is_granted('ROLE_ADMIN') %}
                             <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
