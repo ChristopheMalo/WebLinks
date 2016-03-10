@@ -82,12 +82,26 @@ if (isset($app['debug']) && $app['debug'])
 
 
 // Register services
-$app['dao.user'] = $app->share(function ($app)
+$app['dao.user'] = $app->share(function ($app)          // User
 {
     return new WebLinks\DAO\UserDAO($app['db']);
 });
-$app['dao.link'] = $app->share(function ($app) {
+$app['dao.link'] = $app->share(function ($app) {        // Link
     $linkDAO = new WebLinks\DAO\LinkDAO($app['db']);
     $linkDAO->setUserDAO($app['dao.user']);
     return $linkDAO;
+});
+$app->error(function (\Exception $e, $code) use ($app) { // Error
+    // Construction d'un message d'erreur
+    switch ($code) {
+        case 403:
+            $message = 'Access denied.';
+            break;
+        case 404:
+            $message = 'The requested resource could not be found.';
+            break;
+        default:
+            $message = "Something went wrong.";
+    }
+    return $app['twig']->render('error.html.twig', array('message' => $message));
 });
